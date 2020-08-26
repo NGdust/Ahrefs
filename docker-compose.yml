@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+  mongohref:
+    container_name: mongohref
+    image: mongo:3.3
+    logging:
+      driver: none
+    ports:
+      - "27017:27017"
+    network_mode: func_functions
