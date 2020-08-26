@@ -1,10 +1,15 @@
 version: '3.3'
 services:
-  mongohref:
-    container_name: mongohref
-    image: mongo:3.3
+  couchdb:
+    container_name: couchdb
+    image: docker.io/bitnami/couchdb:3-debian-10
+    environment:
+      - COUCHDB_USER=couchdb
+      - COUCHDB_PASSWORD=couchdb
+    ports:
+      - '5984:5984'
+      - '4369:4369'
+      - '9100:9100'
+    network_mode: func_functions
     logging:
       driver: none
-    ports:
-      - "27017:27017"
-    network_mode: func_functions
