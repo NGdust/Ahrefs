@@ -1,0 +1,23 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+functions:
+  ahrefspost:
+    lang: python3
+    handler: ./ahrefspost
+    image: ahrefspost:latest
+    environment:
+        read_timeout: 60s
+        write_timeout: 60s
+    environment_file:
+    - env.yml
+  ahrefsget:
+    lang: python3
+    handler: ./ahrefsget
+    image: ahrefsget:latest
+    environment:
+        read_timeout: 60s
+        write_timeout: 60s
+    environment_file:
+    - env.yml
