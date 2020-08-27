@@ -70,12 +70,12 @@ def handle(event):
 
     try:
         responce = requests.get(f"https://apiv2.ahrefs.com?from=backlinks&"
-                                f"target={params['domain']}&"
+                                f"target={params['url']}&"
                                 f"mode=domain&"
                                 f"limit=2&"
                                 f"order_by=ahrefs_rank%3Adesc&"
                                 f"output=json&"
-                                f"token={params['token']}")
+                                f"token={os.getenv('TOKEN_AHREFS')}")
         for item in json.loads(responce.text)['refpages']:
             session.add(Href(**item))
         session.commit()
