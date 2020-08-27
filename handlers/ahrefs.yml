@@ -4,7 +4,7 @@ provider:
   gateway: http://127.0.0.1:8080
 functions:
   ahrefspost:
-    lang: python3
+    lang: python3-debian
     handler: ./ahrefspost
     image: ahrefspost:latest
     environment:
@@ -12,8 +12,11 @@ functions:
         write_timeout: 60s
     environment_file:
     - env.yml
+    build_args:
+      ADDITIONAL_PACKAGE: python3-dev libpq-dev
+
   ahrefsget:
-    lang: python3
+    lang: python3-debian
     handler: ./ahrefsget
     image: ahrefsget:latest
     environment:
@@ -21,3 +24,6 @@ functions:
         write_timeout: 60s
     environment_file:
     - env.yml
+    build_args:
+      ADDITIONAL_PACKAGE: python3-dev libpq-dev
+

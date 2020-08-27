@@ -1,15 +1,14 @@
 version: '3.3'
 services:
-  couchdb:
-    container_name: couchdb
-    image: docker.io/bitnami/couchdb:3-debian-10
+  postgres:
+    image: postgres:12
+    container_name: postgres
     environment:
-      - COUCHDB_USER=couchdb
-      - COUCHDB_PASSWORD=couchdb
+      POSTGRES_DB: href
+      POSTGRES_USER: hrefuser
+      POSTGRES_PASSWORD: hrefuser
     ports:
-      - '5984:5984'
-      - '4369:4369'
-      - '9100:9100'
+      - 5432:5432
     network_mode: func_functions
     logging:
       driver: none

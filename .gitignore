@@ -2,3 +2,4 @@ template
 build
 /.idea/
 /venv/
+/handlers/venv

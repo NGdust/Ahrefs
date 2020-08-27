@@ -6,6 +6,8 @@
 >
 > 0.0.0.0:8080/function/ahrefspost?token={TOKEN}&domain={DOMAIN}
 
+#### Settings Database
+> The docker-compose file has username, password, db name and port settings. The same settings are the same in the **handlers/env.yml** file, they refer to the connection of functions to the database. They may be replaced if the database is deployed in the cloud.
 
 #### Locally 
 > **Docker and faas-cli** must be installed.
